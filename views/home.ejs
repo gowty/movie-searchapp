@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ceviche+One" rel="stylesheet">
+  <link href="style/style.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>OMDB-api</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand " style="color:#fff;font-weight:900" href="#">OMDB-API</a>
+        </div>
+        <form class="navbar-form navbar-right" action="/search" method="post">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Title" name="content">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+<div class="container">
+  <div class="row"
+    <div class="row-eq-height">
+  <% blog.forEach(function(blog){ %>
+    <div class="col-sm-6 col-md-4 col-lg-3" id="h">
+      <div class="thumbnail">
+          <img class="img-responsive" src="<%=blog.Poster%>" alt="not found" style="width:100%;height:300px;">
+          <div class="caption">
+         <p><%= blog.Title%></p>
+           <button type="button" class="btn btn-primary" style="font-weight:900" data-toggle="modal" data-target="#<%=blog.imdbID%>">Details</button>
+          </div>
+      </div>
+    </div>
+
+         <!-- Modal content-->
+    <div class="modal fade" id="<%=blog.imdbID%>" role="dialog">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title" style="font-weight:900;"><%=blog.Title%></h4>
+       </div>
+       <div class="modal-body">
+         <p><b>Type:</b><%=blog.Type%></p>
+         <p><b>Year:</b><%=blog.Year%></p>
+         <p><b>Rated:</b><%=blog.Rated%></p>
+         <p><b>Released:</b><%=blog.Released%></p>
+         <p><b>Runtime:</b><%=blog.Runtime%></p>
+         <p><b>Genre:</b><%=blog.Genre%></p>
+         <p><b>Diector:</b><%=blog.Diector%></p>
+         <p><b>Writer:</b><%=blog.Writer%></p>
+         <p><b>Actors:</b><%=blog.Actors%></p>
+         <p><b>Plot:</b><%=blog.Plot%></p>
+         <p><b>Language:</b><%=blog.Language%></p>
+         <p><b>Country:</b><%=blog.Country%></p>
+         <p><b>Awards:</b><%=blog.Awards%></p>
+         <p><b>Ratings:</b><%=blog.Ratings%></p>
+         <p><b>Boxoffice:</b><%=blog.Boxoffice%></p>
+         <p><b>Production:</b><%=blog.Production%></p>
+         <p><b>Website:</b><%=blog.Website%></p>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+
+   </div>
+ </div>
+ <!-- model end -->
+	<% }); %>
+</div>
+    </div>
+</div>
+
+        </body>
+</html>
